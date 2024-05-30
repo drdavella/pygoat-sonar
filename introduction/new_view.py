@@ -14,6 +14,6 @@ def do_useful_things(request):
         result = conn.cursor().execute(sql, (user, ))
 
         json_response = json.dumps({"user": result.fetchone()[0]})
-        return HttpResponse(json_response.encode("utf-8"))
+        return HttpResponse(json_response.encode("utf-8"), content_type="application/json")
     else:
         return redirect("/")
