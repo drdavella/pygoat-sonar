@@ -9,8 +9,8 @@ connection = sqlite3.connect(":memory:")
 connection.cursor().execute("CREATE TABLE Users (name, phone)")
 connection.cursor().execute("INSERT INTO Users VALUES ('Jenny','867-5309')")
 
-@csrf_exempt
 @receiver(request_finished)
+@csrf_exempt
 def bad_query(request):
     if request.method == 'POST':
         name = request.POST.get('name')
