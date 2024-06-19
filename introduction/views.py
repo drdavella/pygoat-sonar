@@ -41,6 +41,12 @@ import requests
 import re
 #*****************************************Login and Registration****************************************************#
 
+
+def a_function(foo):
+    # A realistic use of md5 in a non-cryptographic context
+    return md5(foo.encode()).hexdigest()
+
+
 def register(request):
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
